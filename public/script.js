@@ -2,6 +2,11 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Вызов Telegram.WebApp.expand() после загрузки страницы
+    if (window.Telegram && window.Telegram.WebApp) {
+        Telegram.WebApp.expand();
+    }
+
     const buttons = document.querySelectorAll('.game-btn');
     const overlay = document.getElementById('overlay');
     const newPageContent = document.getElementById('new-page-content');
@@ -103,3 +108,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+е
