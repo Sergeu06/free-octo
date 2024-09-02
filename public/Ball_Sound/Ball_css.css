@@ -1,0 +1,166 @@
+body, html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.circle {
+    width: 500px;
+    height: 500px;
+    border: 5px solid #000;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+/* Создаем анимацию для переливания цветов */
+@keyframes rainbow {
+    0% {
+        background: red; /* Начинаем с красного цвета */
+    }
+    14% {
+        background: orange; /* 14% анимации - оранжевый цвет */
+    }
+    28% {
+        background: yellow; /* 28% анимации - желтый цвет */
+    }
+    42% {
+        background: green; /* 42% анимации - зеленый цвет */
+    }
+    57% {
+        background: blue; /* 57% анимации - синий цвет */
+    }
+    71% {
+        background: indigo; /* 71% анимации - индиго цвет */
+    }
+    85% {
+        background: violet; /* 85% анимации - фиолетовый цвет */
+    }
+    100% {
+        background: red; /* Заканчиваем анимацию снова красным цветом */
+    }
+}
+
+/* Применяем анимацию к шару */
+.ball {
+    width: 100px; /* Размер шара */
+    height: 100px;
+    border-radius: 50%; /* Создание круглой формы */
+    animation: rainbow 6.5s linear infinite; /* Применяем анимацию */
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    overflow: hidden; /* Скрытие части градиента, выходящей за пределы шара */
+    box-shadow: inset 0 0 10px black; /* Добавляем контур черного цвета внутри формы шара */
+    border: 5px solid black; /* Добавляем черную обводку */
+    z-index: 2; /* Устанавливаем высокий z-index для шара */
+
+}
+
+.trail {
+    position: absolute;
+    border-radius: 50%;
+    border: 5px solid black;
+    box-shadow: inset 0 0 10px black; /* Добавляем контур черного цвета внутри формы шара */
+    z-index: 1; /* Устанавливаем низкий z-index для шлейфа */
+}
+
+.restart-button,
+.pause-button {
+    position: absolute;
+    top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 3; /* Устанавливаем самый высокий z-index для кнопок */
+}
+
+.restart-button {
+    right: 100px;
+}
+
+.pause-button {
+    right: 20px;
+}
+
+.restart-button:hover,
+.pause-button:hover
+ {
+    background-color: #0056b3;
+}
+
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: red;
+    z-index: 10; /* Устанавливаем самый высокий z-index для сообщения о завершении игры */
+    display: none; /* Скрываем сообщение по умолчанию */
+}
+
+.modal {
+    display: none; /* Скрываем модальное окно по умолчанию */
+    position: fixed;
+    z-index: 4; /* Устанавливаем высокий z-index для модального окна */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.modal {
+    display: none; /* Скрываем модальное окно по умолчанию */
+    position: fixed;
+    z-index: 5; /* Устанавливаем высокий z-index для модального окна */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.modal button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal input[type="range"] {
+    width: 100%;
+}
+
+.overlay {
+    display: none; /* Скрываем overlay по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный цвет */
+    z-index: 4; /* Устанавливаем z-index выше игрового поля, но ниже модального окна */
+}

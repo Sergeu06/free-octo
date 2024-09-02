@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-board" id="game-board"></div>
+        <button class="start-button">Start Game</button>
+        <button class="restart-button hidden">Restart</button>
+    
+        <div class="info">
+            <h2>Score:</h2>
+            <p id="score">0</p>
+            <h2>Level:</h2>
+            <p id="level">1</p>
+            <h2 class="next-block-heading">Next Block:</h2>
+            <div id="next-block" class="next-block"></div>
+        </div>
+    </div>
+    
+    <!-- Подключаем скрипт для управления игрой -->
+    <script type="module" src="gameControls.js"></script>
+
+    <!-- Подключаем скрипт с логикой игры -->
+    <script type="module" src="gameLogic.js"></script>
+</body>
+</html>

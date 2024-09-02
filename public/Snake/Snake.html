@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="styles_Snake.css">
+</head>
+<body>
+    <!-- Profile Section -->
+    <div id="profile" class="profile" style="display: none;">
+        <img id="avatar" class="avatar" src="" alt="Avatar">
+        <span id="nickname">Nickname</span>
+    </div>
+
+    <img id="playerAvatarImg" src="" alt="User Avatar"> <!-- Player Avatar -->
+
+    <div class="mode-selection">
+        <button id="singlePlayerBtn">Single Player</button>
+        <button id="multiPlayerBtn">Multiplayer</button>
+    </div>
+
+    <div class="game-container" style="display: none;">
+        <canvas id="gameCanvas" width="600" height="600"></canvas>
+        <div id="score">Score: 0</div>
+        <div id="best-score">Best Score: 0</div>
+        <div class="controls">
+            <div class="horizontal-controls">
+                <button id="up" class="control-btn">↑</button>
+                <button id="left" class="control-btn">←</button>
+                <button id="right" class="control-btn">→</button>
+                <button id="down" class="control-btn">↓</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="server-selection" style="display: none;">
+        <button id="refreshServersBtn">Refresh Servers</button>
+        <ul id="serverList"></ul>
+        <button id="openCreateServerModalBtn">Create Server</button>
+    </div>
+
+    <!-- Server Creation Modal -->
+    <div id="serverCreationModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModalBtn" class="close">&times;</span>
+            <h2>Create Server</h2>
+            <div class="server-creation-modal">
+                <div class="form-group">
+                    <label for="serverName">Server Name</label>
+                    <input type="text" id="serverName" placeholder="Enter Server Name">
+                </div>
+                <div class="form-group">
+                    <label class="custom-checkbox">
+                        <input type="checkbox" id="passwordToggle"> Password
+                        <span class="checkmark"></span>
+                    </label>
+                    <input type="password" id="serverPassword" placeholder="Enter Password" style="display: none;">
+                </div>
+                <div class="form-group">
+                    <label for="maxPlayers">Max Players</label>
+                    <select id="maxPlayers">
+                        <option value="2">2 Players</option>
+                        <option value="4">4 Players</option>
+                        <option value="6">6 Players</option>
+                        <option value="8">8 Players</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="gameMode">Game Mode</label>
+                    <select id="gameMode">
+                        <option value="fake1">Game Mode 1</option>
+                        <option value="fake2">Game Mode 2</option>
+                        <option value="real">Real Game Mode</option>
+                    </select>
+                </div>
+                <div class="button-group">
+                    <button id="createServerConfirmBtn" class="create-server-button">Create Server</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="lobby" style="display: none;">
+        <div class="lobby-content">
+            <div class="lobby-title">Lobby</div>
+            <div class="player-list" id="playerList">
+                <!-- Player list will be dynamically populated -->
+            </div>
+        </div>
+        <!-- Container for Buttons -->
+        <div class="button-container">
+            <!-- Settings Button -->
+            <button id="editSettingsButton" class="edit-settings-button">Настройки</button>
+            
+            <!-- Ready Button -->
+            <button id="readyButton" class="ready-button">ГОТОВ</button>
+        </div>
+    </div>
+
+    <script type="module" src="script_Snake.js"></script>
+    <script>
+        // JavaScript to toggle the password input visibility
+        document.getElementById('passwordToggle').addEventListener('change', function() {
+            const passwordField = document.getElementById('serverPassword');
+            if (this.checked) {
+                passwordField.style.display = 'block';
+            } else {
+                passwordField.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+/* Styles for blocks */
+.block {
+    position: relative;
+    width: 95%;
+    height: 95%;
+    border: 1px solid hsl(0, 0%, 30%);
+    background-color: transparent; /* Убираем цвет фона */
+}
+
+.filled {
+    background-color: cyan; /* Цвет будет изменяться в зависимости от блока */
+}
+
+/* Other common styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    color: #fff;
+}
+
+.game-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 95vw;
+    height: 95vh;
+    max-width: 600px;
+    max-height: 800px;
+    border: 1px solid #fff;
+}
+
+.game-board {
+    position: relative;
+    flex: 0 0 75%;
+    border-right: 1px solid #fff;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+}
+
+.info {
+    position: relative;
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#next-block {
+    border: 1px solid #fff;
+    background-color: #000;
+    max-width: 100px;
+    max-height: 100px;
+    width: 100%;
+    height: auto;
+}
+
+canvas {
+    border: none;
+    background-color: #000;
+    width: 100%;
+    height: auto;
+    max-height: 50%;
+    display: block;
+}
+
+@media screen and (max-width: 600px) {
+    h2, p {
+        font-size: 3vw;
+    }
+}
+
+.start-button,
+.restart-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.restart-button.hidden {
+    display: none;
+}
+.start-button.hidden {
+    display: none;
+}
+
+.next-block-heading {
+    margin-top: 20px;
+}
+
+.next-block {
+    display: grid;
+    grid-template-columns: repeat(4, 20px);
+    grid-gap: 5px;
+    border: 2px solid #fff;
+    padding: 5px;
+    background-color: #000;
+}
+
+.next-block-cell {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: 1px solid #fff;
+}
